@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/cadFilmes.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Cadastro de Filmes</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container center-content">
         <span class="main-title">Cadastro</span>
+        
+        <form>
+            <div>
+                <input type="text" name="nome-filme" id="nome-filme" placeholder="Nome do Filme">
+            </div>
+            <br>
+            <fieldset>
+                <select name="genero" id="list-of-gener">
+                    <option value="undefined" selected="true" hidden>Selecione um ou mais Generos</option>
+                    <option value="drama">Drama</option>
+                    <option value="comedia">Comédia romântica</option>
+                    <option value="ficcao">Ficção científica</option>
+                    <option value="terror">Terror</option>
+                    <option value="acao">Ação</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="suspense"">Suspense</option>
+                </select>
+                <legend>Generos</legend>
+                <div id="generos-container">
+                   
+                </div>
+            </fieldset>
+        </form>
+        <button class="main-btn" id="btn-t">Cadastrar</button>
     </div>
+    <script src="../scripts/cadFilme.js"></script>
 </body>
 </html>

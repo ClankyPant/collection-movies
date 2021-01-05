@@ -12,7 +12,7 @@ app.on('ready', () => {
             nodeIntegration: true
         }
     });
-    mainWindow.removeMenu();
+    // mainWindow.removeMenu();
     mainWindow.loadFile(path.join('src','views','index.html'));
 
     ipcMain.on('open-cad-window', (event, arg) => {
@@ -21,7 +21,7 @@ app.on('ready', () => {
                 nodeIntegration: true
             }
         });
-        cadMovieWindow.removeMenu();
+        // cadMovieWindow.removeMenu();
         cadMovieWindow.loadFile(path.join('src', 'views', 'cadFilmes.html'));
         cadMovieWindow.on('close', () => {
             cadMovieWindow = null;
