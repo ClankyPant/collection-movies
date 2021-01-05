@@ -63,7 +63,7 @@ form {
     padding: 5px 10px 5px 15px;
     border-radius: 10px;
     border-width: 1px;
-    border-color: #fa0021c7;
+    border-color: var(--maple-red);
     border-style: solid;
     
     display: flex;

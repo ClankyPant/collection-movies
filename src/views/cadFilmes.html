@@ -13,7 +13,7 @@
         
         <form>
             <div>
-                <input type="text" name="nome-filme" id="nome-filme" placeholder="Nome do Filme">
+                <input type="text" name="nome-filme" id="nome-filme" placeholder="Nome do Filme" id="nome-filme">
             </div>
             <br>
             <fieldset>
@@ -25,15 +25,24 @@
                     <option value="terror">Terror</option>
                     <option value="acao">Ação</option>
                     <option value="aventura">Aventura</option>
-                    <option value="suspense"">Suspense</option>
+                    <option value="suspense">Suspense</option>
                 </select>
                 <legend>Generos</legend>
                 <div id="generos-container">
-                   
+                   <!-- JS IRÁ PREENCHER ESSA PARTE -->
                 </div>
             </fieldset>
         </form>
-        <button class="main-btn" id="btn-t">Cadastrar</button>
+        <fieldset>
+            <legend>Status</legend>
+            <select name="status" id="status">
+                <option value="selecione" selected hidden>Selecione o Status</option>
+                <option value="assistido">Já Foi Visto!</option>
+                <option value="planejando">Planejando Assistir</option>
+                <option value="nao-finalizado">Não Finalizado</option>
+            </select>
+        </fieldset>
+        <button class="main-btn" id="btn-cadastrar">Cadastrar</button>
     </div>
     <script src="../scripts/cadFilme.js"></script>
 </body>

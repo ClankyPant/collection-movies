@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require('electron');
+const {app, BrowserWindow, ipcMain,dialog} = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -12,19 +12,28 @@ app.on('ready', () => {
             nodeIntegration: true
         }
     });
-    // mainWindow.removeMenu();
+    mainWindow.removeMenu();
     mainWindow.loadFile(path.join('src','views','index.html'));
 
-    ipcMain.on('open-cad-window', (event, arg) => {
+    ipcMain.on('open:cad:window', (event, arg) => {
         cadMovieWindow = new BrowserWindow({
             webPreferences: {
                 nodeIntegration: true
             }
         });
-        // cadMovieWindow.removeMenu();
+        cadMovieWindow.removeMenu();
         cadMovieWindow.loadFile(path.join('src', 'views', 'cadFilmes.html'));
         cadMovieWindow.on('close', () => {
             cadMovieWindow = null;
         });
+    });
+
+    ipcMain.on('show:msg:alert', (event, arg) => {
+        dialog.showMessageBox(cadMovieWindow, {
+            title: 'Aviso!',
+            buttons: ['Fechar'],
+            type: 'warning',
+            message: arg,
+        })
     });
 });

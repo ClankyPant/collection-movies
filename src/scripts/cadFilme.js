@@ -1,13 +1,26 @@
-let generSelected = {};
-const select = document.getElementById('list-of-gener');
-const btn = document.getElementById('btn-t');
+const _ = require('underscore');
+const {ipcRenderer} = require('electron');
+
 let divNova = [];
 let spanNova = [];
 let buttonNovo = [];
+let generSelected = {};
+const btn = document.getElementById('btn-cadastrar');
+const select = document.getElementById('list-of-gener');
 
 btn.addEventListener('click', () => {
-    console.log(generSelected)
+    let selectStatus = document.getElementById('status');
 
+    if (_.isEmpty(generSelected)){
+        ipcRenderer.send('show:msg:alert', 'Precisa ser escolhido ao menos um gênero!');
+        return
+    } else if (_.isEqual(selectStatus[selectStatus.selectedIndex].value, 'selecione')) {
+        ipcRenderer.send('show:msg:alert', 'Escolha um status para o filme a ser adicionado!');
+        return
+    } else if (_.isEmpty(document.getElementById('nome-filme'))) {
+        ipcRenderer.send('show:msg:alert', 'Escolha um nome para o Filme a ser adicionado!');
+        return
+    }
 });
 
 select.onchange = () => {
