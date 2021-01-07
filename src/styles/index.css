@@ -49,5 +49,17 @@ img {
 .nome-filme {
     padding-left: 15px;
     font-weight: bold;
+}
 
+.reload-btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-content: flex-end;
+}
+
+.reload-btn:hover {
+    transition: 1.2s;
+    background-color: var(--maple-red);
+    content: url('../img/reload-white-img.svg');   
 }

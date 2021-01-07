@@ -9,6 +9,9 @@ let imgCheckArray = [];
 let imgGiveUpArray = [];
 let imgTrashArray = [];
 
+document.querySelector('.reload-btn').addEventListener('click', () => {
+    selectAllMovies();
+});
 
 btnAdd.addEventListener('click', () => {
     ipcRenderer.send('open:cad:window', 'ping');
