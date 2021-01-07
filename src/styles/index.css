@@ -1,0 +1,53 @@
+.container-movie {
+    width: 50vw;
+    margin: 10px auto;
+    padding: 5px 0;
+    background-color: #F3F3F3;
+
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    padding: 3px;
+    
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+.first-img {
+    margin-left: auto;
+}
+
+.container-movie img:hover[alt=trash-img] {
+    transition: 1.2s;
+    background-color: var(--maple-red);
+    content: url('../img/trash-white-img.svg');
+}
+
+.container-movie img:hover[alt=give-up-img] {
+    transition: 1.2s;
+    background-color: var(--maple-red);
+    content: url('../img/give-up-white-img.svg');
+}
+
+.container-movie img:hover[alt=check-img] {
+    transition: 1.2s;
+    background-color: var(--maple-red);
+    content: url('../img/check-white-img.svg');
+}
+
+.nome-filme {
+    padding-left: 15px;
+    font-weight: bold;
+
+}

@@ -5,22 +5,32 @@ let divNova = [];
 let spanNova = [];
 let buttonNovo = [];
 let generSelected = {};
-const btn = document.getElementById('btn-cadastrar');
+const btnCadastrar = document.getElementById('btn-cadastrar');
 const select = document.getElementById('list-of-gener');
 
-btn.addEventListener('click', () => {
-    let selectStatus = document.getElementById('status');
+btnCadastrar.addEventListener('click', () => {
+    let statusFilme = document.getElementById('status')[document.getElementById('status').selectedIndex].value;
+    let nomeFilme = document.getElementById('nome-filme').value;
+
 
     if (_.isEmpty(generSelected)){
         ipcRenderer.send('show:msg:alert', 'Precisa ser escolhido ao menos um gênero!');
         return
-    } else if (_.isEqual(selectStatus[selectStatus.selectedIndex].value, 'selecione')) {
+    } else if (_.isEqual(statusFilme, 'selecione')) {
         ipcRenderer.send('show:msg:alert', 'Escolha um status para o filme a ser adicionado!');
         return
-    } else if (_.isEmpty(document.getElementById('nome-filme'))) {
+    } else if (_.isEmpty(nomeFilme)) {
         ipcRenderer.send('show:msg:alert', 'Escolha um nome para o Filme a ser adicionado!');
         return
     }
+
+    ipcRenderer.send('cadastrar:movies', {
+        nomeFilme: nomeFilme,
+        generos: generSelected,
+        status: statusFilme
+    });
+
+    ipcRenderer.send('close:cad:win', 'ping');
 });
 
 select.onchange = () => {
@@ -53,4 +63,3 @@ select.onchange = () => {
     select[select.selectedIndex].setAttribute("hidden", '');
     select.value = 'undefined';
 }
-
